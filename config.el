@@ -128,3 +128,17 @@
 (map! :leader
       :desc "Prettier everything"
       "cp" #'prettier-prettify)
+
+(let ((alternatives '("img-0.png"
+                      "img-1.png"
+                      "img-2.png"
+                      "img-3.png"
+                      "img-4.png"
+                      "img-5.png"
+                      "img-6.png"
+                      "img-7.png"
+                      "img-8.png"
+                      "img-9.png")))
+  (setq fancy-splash-image
+        (concat doom-user-dir "splash/"
+                (nth (random (length alternatives)) alternatives))))
