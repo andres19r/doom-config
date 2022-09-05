@@ -129,6 +129,14 @@
       :desc "Prettier everything"
       "cp" #'prettier-prettify)
 
+(map! :leader
+      :desc "Activate python venv"
+      "va" #'pyvenv-activate)
+
+(map! :leader
+      :desc "Deactivate python venv"
+      "vd" #'pyvenv-deactivate)
+
 (let ((alternatives '("img-0.png"
                       "img-1.png"
                       "img-2.png"

@@ -56,3 +56,4 @@
 (package! lsp-jedi)
 (package! lsp-pyright)
 (package! prettier)
+(package! dap-mode)
