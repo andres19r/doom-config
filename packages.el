@@ -57,3 +57,5 @@
 (package! lsp-pyright)
 (package! prettier)
 (package! dap-mode)
+(package! python-black)
+(package! night-owl-theme)
