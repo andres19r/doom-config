@@ -50,12 +50,10 @@
 ;(unpin! t)
 
 (package! tide)
-(package! lsp-mode)
 (package! flycheck)
 (package! lsp-ui)
 (package! lsp-jedi)
 (package! lsp-pyright)
 (package! prettier)
-(package! dap-mode)
 (package! python-black)
 (package! night-owl-theme)
