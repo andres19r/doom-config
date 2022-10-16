@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-tokyo-night)
+(setq doom-theme 'doom-dracula)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -75,20 +75,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(fullscreen . fullscreen))
 
 ;; company settings
 (setq company-minimum-prefix-length 1
       company-idle-delay 0.0) ;; default is 0.2
-
-(setq lsp-clients-angular-language-server-command
-  '("node"
-    "/usr/lib/node_modules/@angular/language-server"
-    "--ngProbeLocations"
-    "/usr/lib/node_modules"
-    "--tsProbeLocations"
-    "/usr/lib/node_modules"
-    "--stdio"))
 
 (with-eval-after-load 'lsp-mode
   ;; :global/:workspace/:file
@@ -118,7 +109,7 @@
 
 (map! :leader
       :desc "No highlight"
-      "nh" #'evil-ex-nohighlight)
+      "hh" #'evil-ex-nohighlight)
 
 (map! :leader
       :desc "Prettier everything"
