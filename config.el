@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-horizon)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -75,7 +75,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(add-to-list 'default-frame-alist '(fullscreen . fullscreen))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; company settings
 (setq company-minimum-prefix-length 1
@@ -123,6 +123,10 @@
       :desc "Deactivate python venv"
       "vd" #'pyvenv-deactivate)
 
+(map! :leader
+      :desc "Dired create file"
+      "d" #'dired-create-empty-file)
+
 (let ((alternatives '("img-0.png"
                       "img-1.png"
                       "img-2.png"
@@ -138,3 +142,19 @@
                 (nth (random (length alternatives)) alternatives))))
 
 (setenv "TSSERVER_LOG_FILE" "/tmp/tsserver.log")
+
+(define-key evil-normal-state-map (kbd "<tab>") '+tabs:next-or-goto)
+(define-key evil-normal-state-map (kbd "<backtab>") '+tabs:previous-or-goto)
+(define-key evil-normal-state-map (kbd "<control><tab>") 'evil-switch-to-windows-last-buffer)
+
+(advice-add 'json-parse-string :around
+            (lambda (orig string &rest rest)
+              (apply orig (s-replace "\\u0000" "" string)
+                     rest)))
+
+(advice-add 'json-parse-buffer :around
+            (lambda (oldfn &rest args)
+	      (save-excursion
+                (while (search-forward "\\u0000" nil t)
+                  (replace-match "" nil t)))
+		(apply oldfn args)))
