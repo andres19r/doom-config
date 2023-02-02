@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-horizon)
+(setq doom-theme 'doom-gruvbox)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -127,6 +127,10 @@
       :desc "Dired create file"
       "d" #'dired-create-empty-file)
 
+(map! :leader
+      :desc "Dired create file"
+      "cb" #'python-black-buffer)
+
 (let ((alternatives '("img-0.png"
                       "img-1.png"
                       "img-2.png"
@@ -158,3 +162,6 @@
                 (while (search-forward "\\u0000" nil t)
                   (replace-match "" nil t)))
 		(apply oldfn args)))
+
+(after! centaur-tabs
+  (setq centaur-tabs-set-bar 'right))
