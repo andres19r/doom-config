@@ -57,3 +57,5 @@
 (package! prettier)
 (package! python-black)
 (package! night-owl-theme)
+(package! lsp-java)
+(package! dap-java)

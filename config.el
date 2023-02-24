@@ -128,7 +128,7 @@
       "d" #'dired-create-empty-file)
 
 (map! :leader
-      :desc "Dired create file"
+      :desc "Python black buffer"
       "cb" #'python-black-buffer)
 
 (let ((alternatives '("img-0.png"
@@ -165,3 +165,8 @@
 
 (after! centaur-tabs
   (setq centaur-tabs-set-bar 'right))
+
+(add-hook 'java-mode-hook #'lsp)
+(require 'dap-java)
+(require 'dap-python)
+(setq dap-python-debugger 'debugpy)
