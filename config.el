@@ -167,6 +167,6 @@
   (setq centaur-tabs-set-bar 'right))
 
 (add-hook 'java-mode-hook #'lsp)
-(require 'dap-java)
-(require 'dap-python)
+;; (require 'dap-java)
+;; (require 'dap-python)
 (setq dap-python-debugger 'debugpy)
