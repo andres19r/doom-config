@@ -58,3 +58,4 @@
 (package! python-black)
 (package! night-owl-theme)
 (package! lsp-java)
+(package! org-bullets)
