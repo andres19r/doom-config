@@ -172,9 +172,10 @@
 (setq dap-python-debugger 'debugpy)
 
 
-(after! org
-  (setq org-directory "~/Documents/org/")
-  (setq org-agenda-files '("~/Documents/org/agenda.org"))
-  (require 'org-bullets)
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-)
+;; TODO: fix org-bullets
+;; (after! org
+;;   (setq org-directory "~/Documents/org/")
+;;   (setq org-agenda-files '("~/Documents/org/agenda.org"))
+;;   (require 'org-bullets)
+;;   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;; )
