@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -131,6 +131,14 @@
       :desc "Python black buffer"
       "cb" #'python-black-buffer)
 
+(map! :leader
+      :desc "Go to next tab"
+      "j" #'+tabs:next-or-goto)
+
+(map! :leader
+      :desc "Go to previous tab"
+      "k" #'+tabs:previous-or-goto)
+
 (let ((alternatives '("img-0.png"
                       "img-1.png"
                       "img-2.png"
@@ -178,3 +186,10 @@
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 )
+
+(defun my-prettier-hook ()
+  (interactive)
+  (when (not (eq major-mode 'python-mode))
+    (prettier-prettify)))
+
+(add-hook 'before-save-hook 'my-prettier-hook)
