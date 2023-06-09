@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "JetBrains Mono" :size 14)
+(setq doom-font (font-spec :family "CaskaydiaCove Nerd Font Mono" :size 14)
      doom-variable-pitch-font (font-spec :family "sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-material)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -139,25 +139,17 @@
       :desc "Go to previous tab"
       "k" #'+tabs:previous-or-goto)
 
-(let ((alternatives '("img-0.png"
+(let ((alternatives '("dragon.png"
                       "img-1.png"
                       "img-2.png"
                       "img-3.png"
-                      "img-4.png"
-                      "img-5.png"
-                      "img-6.png"
-                      "img-7.png"
-                      "img-8.png"
-                      "img-9.png")))
+                      "doom.svg")))
   (setq fancy-splash-image
         (concat doom-user-dir "splash/"
                 (nth (random (length alternatives)) alternatives))))
 
 (setenv "TSSERVER_LOG_FILE" "/tmp/tsserver.log")
 
-(define-key evil-normal-state-map (kbd "<tab>") '+tabs:next-or-goto)
-(define-key evil-normal-state-map (kbd "<backtab>") '+tabs:previous-or-goto)
-(define-key evil-normal-state-map (kbd "<control><tab>") 'evil-switch-to-windows-last-buffer)
 
 (advice-add 'json-parse-string :around
             (lambda (orig string &rest rest)
