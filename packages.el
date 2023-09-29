@@ -54,7 +54,7 @@
 (package! lsp-ui)
 (package! lsp-jedi)
 (package! lsp-pyright)
-(package! prettier)
+;; (package! prettier)
 (package! python-black)
 (package! night-owl-theme)
 (package! lsp-java)
