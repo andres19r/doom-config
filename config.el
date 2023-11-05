@@ -128,3 +128,16 @@
 
 (after! centaur-tabs
   (setq centaur-tabs-set-bar 'right))
+
+(advice-add 'json-parse-string :around
+            (lambda (orig string &rest rest)
+              (apply orig (s-replace "\\u0000" "" string)
+                     rest)))
+
+(advice-add 'json-parse-buffer :around
+            (lambda (oldfn &rest args)
+	      (save-excursion
+                (while (search-forward "\\u0000" nil t)
+                  (replace-match "" nil t)))
+	      (apply oldfn args)))
+
