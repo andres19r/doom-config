@@ -52,3 +52,4 @@
 (package! lsp-pyright)
 (package! python-black)
 (package! night-owl-theme)
+(package! lorem-ipsum)
