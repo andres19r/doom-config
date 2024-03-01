@@ -15,14 +15,14 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14)
-     doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
+;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -32,15 +32,15 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-nord)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type `relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-;; (setq org-directory "~/org/")
+(setq org-directory "~/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -75,30 +75,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; company settings
 (setq company-minimum-prefix-length 1
-      company-idle-delay 0.01) ;; default is 0.2
-
-(with-eval-after-load 'lsp-mode
-  ;; :global/:workspace/:file
-  (setq lsp-modeline-diagnostics-scope :workspace))
-
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
-(use-package! lsp-ui)
-
-(global-visual-line-mode t)
-
-(use-package! lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-  (lsp-enable-which-key-integration t))
+      company-idle-delay 0.0)
 
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
@@ -148,8 +126,8 @@
         (concat doom-user-dir "splash/"
                 (nth (random (length alternatives)) alternatives))))
 
-(setenv "TSSERVER_LOG_FILE" "/tmp/tsserver.log")
-
+(after! centaur-tabs
+  (setq centaur-tabs-set-bar 'right))
 
 (advice-add 'json-parse-string :around
             (lambda (orig string &rest rest)
@@ -161,38 +139,13 @@
 	      (save-excursion
                 (while (search-forward "\\u0000" nil t)
                   (replace-match "" nil t)))
-		(apply oldfn args)))
+	      (apply oldfn args)))
 
-(after! centaur-tabs
-  (setq centaur-tabs-set-bar 'right))
+;; (setq lsp-headerline-breadcrumb-enable t)
+;; (lsp-treemacs-sync-mode 1)
 
-(add-hook 'java-mode-hook #'lsp)
-;; (require 'dap-java)
-;; (require 'dap-python)
-(setq dap-python-debugger 'debugpy)
+(require 'dap-firefox)
+(require 'dap-chrome)
+(require 'dap-node)
 
-
-(after! org
-  (setq org-directory "~/Documents/org/")
-  (setq org-agenda-files '("~/Documents/org/agenda.org"))
-  (require 'org-bullets)
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-)
-
-(defun my-prettier-hook ()
-  (interactive)
-  (when (not (eq major-mode 'python-mode))
-    (prettier-prettify)))
-
-(add-hook 'before-save-hook 'my-prettier-hook)
-
-(with-eval-after-load 'lsp-mode
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\venv\\'"))
-
-(define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-
-(use-package! lsp-mode
-  :custom
-  (lsp-headerline-breadcrumb-enable t))
-(lsp-treemacs-sync-mode 1)
+(setq tab-width 2)
