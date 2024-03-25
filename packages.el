@@ -53,3 +53,4 @@
 (package! python-black)
 (package! night-owl-theme)
 (package! lorem-ipsum)
+(package! prettier)

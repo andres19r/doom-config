@@ -76,7 +76,7 @@
 ;; they are implemented.
 
 (setq company-minimum-prefix-length 1
-      company-idle-delay 0.0)
+      company-idle-delay 0.1)
 
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
@@ -149,3 +149,6 @@
 (require 'dap-node)
 
 (setq tab-width 2)
+(add-hook 'after-init-hook #'global-prettier-mode)
+(set-frame-parameter (selected-frame) 'alpha '(95 95))
+(add-to-list 'default-frame-alist '(alpha 95 95))
