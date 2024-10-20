@@ -54,3 +54,4 @@
 (package! night-owl-theme)
 (package! lorem-ipsum)
 (package! prettier)
+(package! emmet-mode)
