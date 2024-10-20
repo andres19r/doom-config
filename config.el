@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-tokyo-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -157,3 +157,15 @@
     (treemacs-fit-window-width)))
 
 (advice-add 'treemacs-select-window :after #'my-treemacs-auto-fit-width)
+
+(add-hook 'html-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook 'emmet-mode)
+(add-hook 'scss-mode-hook 'emmet-mode)
+(add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'js-mode-hook 'emmet-mode)
+(add-hook 'jsx-mode-hook 'emmet-mode)
+(add-hook 'js2-mode-hook 'emmet-mode)
+
+(add-hook 'html-mode-hook #'lsp)
+(add-hook 'css-mode-hook #'lsp)
+(add-hook 'scss-mode-hook #'lsp)
