@@ -171,3 +171,4 @@
 (add-hook 'scss-mode-hook #'lsp)
 
 (global-visual-line-mode t)
+(setq treemacs-default-visit-action 'treemacs-visit-node-close-treemacs)
