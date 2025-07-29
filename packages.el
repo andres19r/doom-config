@@ -53,5 +53,5 @@
 (package! python-black)
 (package! night-owl-theme)
 (package! lorem-ipsum)
-(package! prettier)
+(package! prettier-js)
 (package! emmet-mode)

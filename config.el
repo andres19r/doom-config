@@ -91,7 +91,7 @@
 
 (map! :leader
       :desc "Prettier everything"
-      "cp" #'prettier-prettify)
+      "cp" #'prettier-js-prettify)
 
 (map! :leader
       :desc "Activate python venv"
@@ -148,8 +148,9 @@
 (require 'dap-chrome)
 (require 'dap-node)
 
-(setq tab-width 2)
-(add-hook 'after-init-hook #'global-prettier-mode)
+(setq-default tab-width 2)
+(setq-default evil-shift-width 2)
+;; (add-hook 'after-init-hook #'prettier-js-mode)
 ;; (set-frame-parameter (selected-frame) 'alpha '(95 95))
 ;; (add-to-list 'default-frame-alist '(alpha 95 95))
 (defun my-treemacs-auto-fit-width ()
@@ -165,12 +166,20 @@
 (add-hook 'js-mode-hook 'emmet-mode)
 (add-hook 'jsx-mode-hook 'emmet-mode)
 (add-hook 'js2-mode-hook 'emmet-mode)
+(add-hook 'html-mode-hook 'prettier-js-mode)
+(add-hook 'css-mode-hook 'prettier-js-mode)
+(add-hook 'scss-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'js-mode-hook 'prettier-js-mode)
+(add-hook 'jsx-mode-hook 'prettier-js-mode)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
 
 (add-hook 'html-mode-hook #'lsp)
 (add-hook 'css-mode-hook #'lsp)
 (add-hook 'scss-mode-hook #'lsp)
 
 (global-visual-line-mode t)
-(setq treemacs-default-visit-action 'treemacs-visit-node-close-treemacs)
+;; (setq treemacs-default-visit-action 'treemacs-visit-node-close-treemacs)
 
 (use-package! evil-escape :init (setq evil-escape-key-sequence "jk"))
+
