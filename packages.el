@@ -55,3 +55,4 @@
 (package! lorem-ipsum)
 (package! prettier-js)
 (package! emmet-mode)
+(package! dap-mode)

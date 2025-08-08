@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "MonaspiceNe Nerd Font Mono" :size 13))
+(setq doom-font (font-spec :family "CaskaydiaCove Nerd Font" :size 13))
 ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -158,6 +158,7 @@
     (treemacs-fit-window-width)))
 
 (advice-add 'treemacs-select-window :after #'my-treemacs-auto-fit-width)
+(treemacs-project-follow-mode 1)
 
 (add-hook 'html-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
