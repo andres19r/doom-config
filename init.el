@@ -21,10 +21,10 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company           ; the ultimate code completion backend
-       ;; (helm +icons)              ; the *other* search engine for love and life
+       (company +childframe)           ; the ultimate code completion backend
+       (helm +icons)              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy +icons)               ; a search engine for love and life
+       ;; (ivy +icons)               ; a search engine for love and life
        vertico           ; the search engine of the future
 
        :ui
@@ -154,7 +154,7 @@
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       org               ; organize your plain life in plain text
+       (org +roam2)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
