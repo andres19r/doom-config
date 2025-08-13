@@ -159,6 +159,7 @@
 
 (advice-add 'treemacs-select-window :after #'my-treemacs-auto-fit-width)
 (treemacs-project-follow-mode 1)
+(treemacs-follow-mode 1)
 
 (add-hook 'html-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
