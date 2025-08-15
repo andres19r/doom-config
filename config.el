@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-nord-aurora)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -147,6 +147,27 @@
 (require 'dap-firefox)
 (require 'dap-chrome)
 (require 'dap-node)
+;; DAP Mode setup
+(use-package! dap-mode
+  :after lsp-mode
+  :config
+  ;; Enable dap-mode
+  (dap-auto-configure-mode)
+
+  ;; Enable tooltip support
+  (dap-tooltip-mode 1)
+
+  ;; Use posframe for tooltips (optional, but looks nicer)
+  (when (display-graphic-p)
+    (dap-tooltip-mode 1))
+
+  ;; Enable the UI controls
+  (dap-ui-controls-mode 1))
+(use-package! dap-node
+  :after dap-mode
+  :config
+  ;; Register Node.js debug templates
+  (dap-node-setup))
 
 (setq-default tab-width 2)
 (setq-default evil-shift-width 2)
@@ -192,3 +213,43 @@
   (org-roam-db-autosync-enable))
 
 ;; (setq lsp-python-ms-python-executable "python3")
+;; Angular debugging templates
+(after! dap-mode
+  ;; Angular serve debugging (corrected with absolute path)
+  (dap-register-debug-template "Angular Serve"
+                               (list :type "node"
+                                     :request "launch"
+                                     :name "Angular Serve"
+                                     :program "${workspaceFolder}/node_modules/@angular/cli/bin/ng"
+                                     :args ["serve"]
+                                     :console "integratedTerminal"
+                                     :cwd "${workspaceFolder}"))
+
+  ;; Angular tests debugging (also corrected)
+  (dap-register-debug-template "Angular Tests"
+                               (list :type "node"
+                                     :request "launch"
+                                     :name "Angular Tests"
+                                     :program "${workspaceFolder}/node_modules/@angular/cli/bin/ng"
+                                     :args ["test" "--watch=false"]
+                                     :console "integratedTerminal"
+                                     :cwd "${workspaceFolder}"))
+
+  ;; Alternative using npx (often more reliable)
+  (dap-register-debug-template "Angular Serve (npx)"
+                               (list :type "node"
+                                     :request "launch"
+                                     :name "Angular Serve (npx)"
+                                     :program "${workspaceFolder}/node_modules/.bin/npx"
+                                     :args ["ng" "serve"]
+                                     :console "integratedTerminal"
+                                     :cwd "${workspaceFolder}"))
+
+  ;; Chrome debugging for Angular app
+  (dap-register-debug-template "Angular Chrome"
+                               (list :type "chrome"
+                                     :request "launch"
+                                     :name "Angular Chrome"
+                                     :url "http://localhost:4200"
+                                     :webRoot "${workspaceFolder}")))
+
