@@ -127,8 +127,7 @@
                 (nth (random (length alternatives)) alternatives))))
 
 (after! centaur-tabs
-  (setq centaur-tabs-set-bar 'right)
-  (setq centaur-tabs-style 'wave))
+  (setq centaur-tabs-set-bar 'right))
 
 (advice-add 'json-parse-string :around
             (lambda (orig string &rest rest)
