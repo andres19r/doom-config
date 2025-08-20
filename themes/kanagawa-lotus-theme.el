@@ -2,10 +2,10 @@
 
 ;; Copyright (C) 2025
 
-;; Author: Andres Rivero
-;; Version: 1.0.0
+;; Author: and19riv
+;; Version: 2.0.0
 ;; Package-Requires: ((emacs "24.1"))
-;; Keywords: faces, theme, light
+;; Keywords: faces, theme, light, kanagawa, lotus
 ;; URL: 
 
 ;;; Commentary:
@@ -14,6 +14,9 @@
 ;; by Katsushika Hokusai. The Lotus variant captures the serenity of lotus flowers
 ;; floating on calm waters, with warm earth tones and soft contrasts perfect for
 ;; daytime coding sessions.
+;;
+;; This theme provides comprehensive syntax highlighting and extensive plugin support
+;; while maintaining the peaceful aesthetic of the Kanagawa Lotus color scheme.
 
 ;;; Code:
 
@@ -74,7 +77,7 @@
       
       ;; Special UI colors
       (lotus-cursor      "#6693BF")  ; Cursor color
-      (lotus-selection   "#E5DDD5")  ; Text selection
+      (lotus-selection   "#C8D4E0")  ; Text selection
       (lotus-search      "#F2BF26")  ; Search highlight
       (lotus-match       "#5A7785")  ; Matching elements
       
@@ -117,7 +120,7 @@
 
    ;; UI elements
    `(fringe ((,class (:background ,lotus-bg-1))))
-   `(header-line ((,class (:background ,lotus-bg-3 :foreground ,lotus-fg-0))))
+   `(header-line ((,class (:background ,lotus-bg-5 :foreground ,lotus-fg-0))))
    `(line-number ((,class (:background ,lotus-bg-1 :foreground ,lotus-gray-1))))
    `(line-number-current-line ((,class (:background ,lotus-bg-5 :foreground ,lotus-cursor))))
    `(minibuffer-prompt ((,class (:foreground ,lotus-blue-0 :weight bold))))
@@ -172,12 +175,12 @@
 
    ;; Company (completion)
    `(company-echo-common ((,class (:foreground ,lotus-red-0))))
-   `(company-preview ((,class (:background ,lotus-bg-3 :foreground ,lotus-fg-1))))
-   `(company-preview-common ((,class (:background ,lotus-bg-3 :foreground ,lotus-blue-0))))
+   `(company-preview ((,class (:background ,lotus-bg-5 :foreground ,lotus-fg-1))))
+   `(company-preview-common ((,class (:background ,lotus-bg-5 :foreground ,lotus-blue-0))))
    `(company-preview-search ((,class (:background ,lotus-blue-0 :foreground ,lotus-bg-0))))
-   `(company-scrollbar-bg ((,class (:background ,lotus-bg-3))))
+   `(company-scrollbar-bg ((,class (:background ,lotus-bg-5))))
    `(company-scrollbar-fg ((,class (:background ,lotus-border))))
-   `(company-tooltip ((,class (:background ,lotus-bg-3 :foreground ,lotus-fg-0))))
+   `(company-tooltip ((,class (:background ,lotus-bg-5 :foreground ,lotus-fg-0))))
    `(company-tooltip-annotation ((,class (:foreground ,lotus-gray-1))))
    `(company-tooltip-common ((,class (:foreground ,lotus-blue-0))))
    `(company-tooltip-common-selection ((,class (:foreground ,lotus-bg-0))))
@@ -189,10 +192,17 @@
    `(magit-branch-remote ((,class (:foreground ,lotus-green-0))))
    `(magit-diff-added ((,class (:foreground ,lotus-diff-add))))
    `(magit-diff-removed ((,class (:foreground ,lotus-diff-delete))))
+   `(magit-diff-added-highlight ((,class (:background "#90C090" :foreground "#003300" :weight bold))))
+   `(magit-diff-removed-highlight ((,class (:background "#C09090" :foreground "#330000" :weight bold))))
    `(magit-diff-context ((,class (:foreground ,lotus-fg-1))))
+   `(magit-diff-base-highlight ((,class (:background "#E8D4B8" :foreground "#7B5B16"))))
+   `(magit-diff-context-highlight ((,class (:background "#E8E8D8"))))
    `(magit-hash ((,class (:foreground ,lotus-orange-0))))
    `(magit-log-author ((,class (:foreground ,lotus-violet-0))))
    `(magit-log-date ((,class (:foreground ,lotus-gray-1))))
+
+   ; `(smerge-refined-added ((,class (:background "#70A070" :foreground "#002200" :weight bold))))
+   ; `(smerge-refined-removed ((,class (:background "#A07070" :foreground "#220000" :weight bold))))
 
    ;; Error and warning faces
    `(error ((,class (:foreground ,lotus-red-0 :weight bold))))
@@ -205,7 +215,7 @@
    `(flycheck-info ((,class (:underline (:style wave :color ,lotus-blue-0)))))
 
    ;; Helm
-   `(helm-header ((,class (:background ,lotus-bg-3 :foreground ,lotus-fg-0))))
+   `(helm-header ((,class (:background ,lotus-bg-5 :foreground ,lotus-fg-0))))
    `(helm-source-header ((,class (:background ,lotus-blue-0 :foreground ,lotus-bg-0 :weight bold))))
    `(helm-selection ((,class (:background ,lotus-selection))))
    `(helm-match ((,class (:foreground ,lotus-orange-0 :weight bold))))
@@ -221,6 +231,37 @@
    `(treemacs-file-face ((,class (:foreground ,lotus-fg-0))))
    `(treemacs-root-face ((,class (:foreground ,lotus-teal-0 :weight bold))))
 
+   ;; Centaur Tabs (Doom Emacs compatibility)
+   `(centaur-tabs-default ((,class (:background ,lotus-bg-1 :foreground ,lotus-gray-1))))
+   `(centaur-tabs-selected ((,class (:background ,lotus-bg-0 :foreground ,lotus-fg-0 :weight bold))))
+   `(centaur-tabs-unselected ((,class (:background ,lotus-bg-2 :foreground ,lotus-gray-0))))
+   `(centaur-tabs-selected-modified ((,class (:background ,lotus-bg-0 :foreground ,lotus-orange-0 :weight bold))))
+   `(centaur-tabs-unselected-modified ((,class (:background ,lotus-bg-2 :foreground ,lotus-orange-1))))
+   `(centaur-tabs-active-bar-face ((,class (:background ,lotus-blue-0))))
+   `(centaur-tabs-modified-marker-selected ((,class (:inherit centaur-tabs-selected-modified :foreground ,lotus-orange-0))))
+   `(centaur-tabs-modified-marker-unselected ((,class (:inherit centaur-tabs-unselected-modified :foreground ,lotus-orange-1))))
+   
+   ;; Additional centaur-tabs faces
+   `(centaur-tabs-active-tab ((,class (:background ,lotus-bg-0 :foreground ,lotus-fg-0 :weight bold))))
+   `(centaur-tabs-inactive-tab ((,class (:background ,lotus-bg-2 :foreground ,lotus-gray-0))))
+   `(centaur-tabs-selected-tab ((,class (:background ,lotus-green-0 :foreground ,lotus-bg-0 :weight bold))))
+
+   ;; Doom-specific workspace tabs
+   `(+workspace-tab-selected-face ((,class (:background ,lotus-green-0 :foreground ,lotus-bg-0 :weight bold))))
+   `(+workspace-tab-face ((,class (:background ,lotus-bg-2 :foreground ,lotus-gray-0))))
+
+   ;; Tab Bar (built-in Emacs tabs)
+   `(tab-bar ((,class (:background ,lotus-bg-1 :foreground ,lotus-fg-0))))
+   `(tab-bar-tab ((,class (:background ,lotus-bg-0 :foreground ,lotus-fg-0 :weight bold))))
+   `(tab-bar-tab-inactive ((,class (:background ,lotus-bg-2 :foreground ,lotus-gray-0))))
+
+   ;; Tab Line (built-in Emacs tab line)
+   `(tab-line ((,class (:background ,lotus-bg-1 :foreground ,lotus-fg-0))))
+   `(tab-line-tab ((,class (:background ,lotus-bg-0 :foreground ,lotus-fg-0 :weight bold))))
+   `(tab-line-tab-inactive ((,class (:background ,lotus-bg-2 :foreground ,lotus-gray-0))))
+   `(tab-line-tab-current ((,class (:background ,lotus-bg-0 :foreground ,lotus-fg-0 :weight bold))))
+   `(tab-line-close-highlight ((,class (:foreground ,lotus-red-0))))
+
    ;; Term colors (for terminal emulation)
    `(term-color-black ((,class (:background ,lotus-bg-2 :foreground ,lotus-bg-2))))
    `(term-color-red ((,class (:background ,lotus-red-0 :foreground ,lotus-red-0))))
@@ -235,7 +276,7 @@
    `(diff-added ((,class (:background "#E8F0E8" :foreground ,lotus-diff-add))))
    `(diff-removed ((,class (:background "#F0E8E8" :foreground ,lotus-diff-delete))))
    `(diff-changed ((,class (:background "#F0F0E8" :foreground ,lotus-diff-change))))
-   `(diff-header ((,class (:background ,lotus-bg-3 :foreground ,lotus-fg-1))))
+   `(diff-header ((,class (:background ,lotus-bg-5 :foreground ,lotus-fg-1))))
    `(diff-file-header ((,class (:background ,lotus-bg-4 :foreground ,lotus-fg-0 :weight bold))))
    `(diff-hunk-header ((,class (:background ,lotus-bg-2 :foreground ,lotus-teal-0))))
 
@@ -252,7 +293,6 @@
    `(eshell-ls-directory ((,class (:foreground ,lotus-blue-0 :weight bold))))
    `(eshell-ls-executable ((,class (:foreground ,lotus-green-0))))
    `(eshell-ls-symlink ((,class (:foreground ,lotus-teal-0))))
-
 
    ;; Ivy/Counsel
    `(ivy-current-match ((,class (:background ,lotus-selection :foreground ,lotus-fg-0))))
@@ -274,7 +314,46 @@
    `(orderless-match-face-0 ((,class (:foreground ,lotus-blue-0 :weight bold))))
    `(orderless-match-face-1 ((,class (:foreground ,lotus-orange-0 :weight bold))))
    `(orderless-match-face-2 ((,class (:foreground ,lotus-green-0 :weight bold))))
-   `(orderless-match-face-3 ((,class (:foreground ,lotus-violet-0 :weight bold))))))
+   `(orderless-match-face-3 ((,class (:foreground ,lotus-violet-0 :weight bold))))
+
+   ;; Dashboard
+   `(dashboard-heading ((,class (:foreground ,lotus-blue-0 :weight bold))))
+   `(dashboard-text-banner ((,class (:foreground ,lotus-violet-0 :weight bold))))
+   `(dashboard-banner-logo-title ((,class (:foreground ,lotus-blue-0 :weight bold))))
+
+   ;; Doom modeline
+   `(doom-modeline-bar ((,class (:background ,lotus-blue-0))))
+   `(doom-modeline-project-dir ((,class (:foreground ,lotus-blue-0 :weight bold))))
+   `(doom-modeline-buffer-path ((,class (:foreground ,lotus-fg-0 :weight bold))))
+   `(doom-modeline-buffer-file ((,class (:foreground ,lotus-fg-0 :weight bold))))
+   `(doom-modeline-buffer-modified ((,class (:foreground ,lotus-orange-0 :weight bold))))
+   `(doom-modeline-buffer-major-mode ((,class (:foreground ,lotus-blue-0 :weight bold))))
+   `(doom-modeline-info ((,class (:foreground ,lotus-green-0 :weight bold))))
+   `(doom-modeline-warning ((,class (:foreground ,lotus-orange-1 :weight bold))))
+   `(doom-modeline-urgent ((,class (:foreground ,lotus-red-0 :weight bold))))
+
+   ;; LSP and Tree-sitter
+   `(lsp-face-highlight-textual ((,class (:background ,lotus-bg-5))))
+   `(lsp-face-highlight-read ((,class (:background ,lotus-bg-5))))
+   `(lsp-face-highlight-write ((,class (:background ,lotus-bg-5))))
+
+   ;; Treesitter faces
+   `(tree-sitter-hl-face:function ((,class (:foreground ,lotus-teal-1))))
+   `(tree-sitter-hl-face:function.call ((,class (:foreground ,lotus-teal-1))))
+   `(tree-sitter-hl-face:method ((,class (:foreground ,lotus-teal-1))))
+   `(tree-sitter-hl-face:method.call ((,class (:foreground ,lotus-teal-1))))
+   `(tree-sitter-hl-face:type ((,class (:foreground ,lotus-yellow-0))))
+   `(tree-sitter-hl-face:type.builtin ((,class (:foreground ,lotus-yellow-0))))
+   `(tree-sitter-hl-face:constructor ((,class (:foreground ,lotus-yellow-0))))
+   `(tree-sitter-hl-face:variable ((,class (:foreground ,lotus-fg-1))))
+   `(tree-sitter-hl-face:variable.builtin ((,class (:foreground ,lotus-fg-1))))
+   `(tree-sitter-hl-face:property ((,class (:foreground ,lotus-fg-1))))
+   `(tree-sitter-hl-face:operator ((,class (:foreground ,lotus-aqua-0))))
+   `(tree-sitter-hl-face:keyword ((,class (:foreground ,lotus-violet-0))))
+   `(tree-sitter-hl-face:string ((,class (:foreground ,lotus-green-1))))
+   `(tree-sitter-hl-face:number ((,class (:foreground ,lotus-orange-0))))
+   `(tree-sitter-hl-face:boolean ((,class (:foreground ,lotus-orange-0))))
+   `(tree-sitter-hl-face:comment ((,class (:foreground ,lotus-gray-0 :style italic))))))
 
 ;;;###autoload
 (when load-file-name
