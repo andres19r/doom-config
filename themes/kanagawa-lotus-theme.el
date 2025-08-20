@@ -190,10 +190,10 @@
    `(magit-section-heading ((,class (:foreground ,lotus-teal-0 :weight bold))))
    `(magit-branch-local ((,class (:foreground ,lotus-blue-0))))
    `(magit-branch-remote ((,class (:foreground ,lotus-green-0))))
-   `(magit-diff-added ((,class (:foreground ,lotus-diff-add))))
-   `(magit-diff-removed ((,class (:foreground ,lotus-diff-delete))))
-   `(magit-diff-added-highlight ((,class (:background "#90C090" :foreground "#003300" :weight bold))))
-   `(magit-diff-removed-highlight ((,class (:background "#C09090" :foreground "#330000" :weight bold))))
+   `(magit-diff-added ((,class (:foreground "#1B5E20" :background "#C8E6C9" :weight bold))))
+   `(magit-diff-removed ((,class (:foreground "#B71C1C" :background "#FFCDD2" :weight bold))))
+   `(magit-diff-added-highlight ((,class (:background "#E8F5E8" :foreground "#2E7D32" :weight bold))))
+   `(magit-diff-removed-highlight ((,class (:background "#FFEBEE" :foreground "#C62828" :weight bold))))
    `(magit-diff-context ((,class (:foreground ,lotus-fg-1))))
    `(magit-diff-base-highlight ((,class (:background "#E8D4B8" :foreground "#7B5B16"))))
    `(magit-diff-context-highlight ((,class (:background "#E8E8D8"))))
@@ -201,8 +201,8 @@
    `(magit-log-author ((,class (:foreground ,lotus-violet-0))))
    `(magit-log-date ((,class (:foreground ,lotus-gray-1))))
 
-   ; `(smerge-refined-added ((,class (:background "#70A070" :foreground "#002200" :weight bold))))
-   ; `(smerge-refined-removed ((,class (:background "#A07070" :foreground "#220000" :weight bold))))
+   `(smerge-refined-added ((,class (:background "#E0F2E0" :foreground "#1B5E20" :weight bold))))
+   `(smerge-refined-removed ((,class (:background "#FFE0E0" :foreground "#B71C1C" :weight bold))))
 
    ;; Error and warning faces
    `(error ((,class (:foreground ,lotus-red-0 :weight bold))))
@@ -273,8 +273,8 @@
    `(term-color-white ((,class (:background ,lotus-fg-0 :foreground ,lotus-fg-0))))
 
    ;; Diff mode
-   `(diff-added ((,class (:background "#E8F0E8" :foreground ,lotus-diff-add))))
-   `(diff-removed ((,class (:background "#F0E8E8" :foreground ,lotus-diff-delete))))
+   `(diff-added ((,class (:background "#C8E6C9" :foreground "#1B5E20" :weight bold))))
+   `(diff-removed ((,class (:background "#FFCDD2" :foreground "#B71C1C" :weight bold))))
    `(diff-changed ((,class (:background "#F0F0E8" :foreground ,lotus-diff-change))))
    `(diff-header ((,class (:background ,lotus-bg-5 :foreground ,lotus-fg-1))))
    `(diff-file-header ((,class (:background ,lotus-bg-4 :foreground ,lotus-fg-0 :weight bold))))
