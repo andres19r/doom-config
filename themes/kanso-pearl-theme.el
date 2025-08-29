@@ -1,6 +1,6 @@
 ;;; kanso-pearl-theme.el --- A light theme inspired by Kanso Pearl -*- lexical-binding: t -*-
 
-;; Author: Your Name
+;; Author: Andres Rivero
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "24.3"))
 ;; Keywords: faces, themes
@@ -126,6 +126,18 @@
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:weight bold))))
    `(mode-line-highlight ((,class (:box (:line-width 1 :color ,gray3)))))
+
+   ;; Evil mode state colors (if using evil)
+   `(evil-normal-state ((,class (:foreground ,green))))  ; Using pearlGreen
+   `(evil-insert-state ((,class (:foreground ,blue4))))
+   `(evil-visual-state ((,class (:foreground ,yellow2))))
+   `(evil-replace-state ((,class (:foreground ,red))))
+   `(evil-operator-state ((,class (:foreground ,aqua))))
+
+   ;; Doom modeline evil states (if using doom-modeline)
+   `(doom-modeline-evil-normal-state ((,class (:foreground ,green))))
+   `(doom-modeline-evil-insert-state ((,class (:foreground ,blue4))))
+   `(doom-modeline-evil-visual-state ((,class (:foreground ,yellow2))))
 
    ;; Isearch
    `(isearch ((,class (:background ,blue2 :foreground ,fg :weight bold))))
@@ -381,6 +393,15 @@
   `(tab-line-tab-inactive ((,class (:background ,pearl-bg2 :foreground ,gray2))))
   `(tab-line-tab-current ((,class (:background ,pearl-bg0 :foreground ,fg :weight bold))))
   `(tab-line-close-highlight ((,class (:foreground ,red3))))
+  ;; Term colors (for terminal emulation)
+  `(term-color-black ((,class (:background ,fg2 :foreground ,fg2))))
+  `(term-color-red ((,class (:background ,red :foreground ,red))))
+  `(term-color-green ((,class (:background ,green :foreground ,green))))
+  `(term-color-yellow ((,class (:background ,yellow2 :foreground ,yellow2))))
+  `(term-color-blue ((,class (:background ,blue4 :foreground ,blue4))))
+  `(term-color-magenta ((,class (:background ,pink :foreground ,pink))))
+  `(term-color-cyan ((,class (:background ,aqua :foreground ,aqua))))
+  `(term-color-white ((,class (:background ,pearl-bg0 :foreground ,pearl-bg0))))
 
    ;; Eshell
    `(eshell-prompt ((,class (:foreground ,violet4 :weight bold))))

@@ -1,6 +1,6 @@
 ;;; kanso-zen-theme.el --- A dark theme inspired by Kanso Zen -*- lexical-binding: t -*-
 
-;; Author: Your Name
+;; Author: Andres Rivero
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "24.3"))
 ;; Keywords: faces, themes
@@ -107,6 +107,38 @@
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:weight bold))))
    `(mode-line-highlight ((,class (:box (:line-width 1 :color ,gray3)))))
+   `(mode-line ((,class (:background ,zen-bg1 :foreground ,fg))))
+   `(mode-line-inactive ((,class (:background ,zen-bg0 :foreground ,gray3))))
+   `(mode-line-buffer-id ((,class (:weight bold))))
+   `(mode-line-emphasis ((,class (:weight bold :foreground ,green3)))) ; Use muted green
+   `(mode-line-highlight ((,class (:box (:line-width 1 :color ,gray3)))))
+   `(mode-line-buffer-id-inactive ((,class (:foreground ,gray3))))
+   `(vc-git-state-up-to-date ((,class (:foreground ,green3))))
+
+   ;; Evil mode state colors (if using evil)
+   `(evil-normal-state ((,class (:foreground ,green3))))  ; Using muted green3 instead of bright green
+   `(evil-insert-state ((,class (:foreground ,blue3))))
+   `(evil-visual-state ((,class (:foreground ,yellow3))))
+   `(evil-replace-state ((,class (:foreground ,red3))))
+   `(evil-operator-state ((,class (:foreground ,aqua))))
+
+   ;; Doom modeline evil states (if using doom-modeline)
+   `(doom-modeline-evil-normal-state ((,class (:foreground ,green3))))
+   `(doom-modeline-evil-insert-state ((,class (:foreground ,blue3))))
+   `(doom-modeline-evil-visual-state ((,class (:foreground ,yellow3))))
+   `(doom-modeline-info ((,class (:foreground ,green3))))
+   `(doom-modeline-warning ((,class (:foreground ,yellow3))))
+   `(doom-modeline-error ((,class (:foreground ,red3))))
+   `(doom-modeline-buffer-modified ((,class (:foreground ,orange))))
+   `(doom-modeline-project-dir ((,class (:foreground ,violet2))))
+   `(doom-modeline-buffer-file ((,class (:foreground ,fg))))
+
+   ;; Version control and git faces
+   `(vc-state-base ((,class (:foreground ,gray3))))
+   `(vc-up-to-date ((,class (:foreground ,green3))))  ; Use muted green
+   `(vc-edited ((,class (:foreground ,yellow3))))     ; Use muted yellow
+   `(vc-missing ((,class (:foreground ,red3))))
+
 
    ;; Isearch
    `(isearch ((,class (:background ,alt-blue2 :foreground ,fg :weight bold))))
@@ -336,11 +368,11 @@
    `(git-gutter:modified ((,class (:foreground ,git-yellow :weight bold))))
 
    ;; Magit
-   `(magit-branch-current ((,class (:foreground ,aqua :weight bold))))
+   `(magit-branch-current ((,class (:foreground ,green3))))
    `(magit-branch-local ((,class (:foreground ,blue3))))
    `(magit-branch-remote ((,class (:foreground ,green3))))
    `(magit-diff-added ((,class (:background ,diff-green :foreground ,green3))))
-   `(magit-diff-added-highlight ((,class (:background "#90C090" :foreground "#003300" :weight bold))))
+   `(magit-diff-added-highlight ((,class (:background, green :foreground, diff-green))))
    `(magit-diff-removed ((,class (:background ,diff-red :foreground ,red3))))
    `(magit-diff-removed-highlight ((,class (:background ,diff-red :foreground ,red2))))
    `(magit-diff-context ((,class (:foreground ,gray3))))
@@ -392,6 +424,15 @@
   `(tab-line-tab-inactive ((,class (:background ,zen-bg2 :foreground ,gray2))))
   `(tab-line-tab-current ((,class (:background ,zen-bg0 :foreground ,fg :weight bold))))
   `(tab-line-close-highlight ((,class (:foreground ,red))))
+  ;; Term colors (for terminal emulation)
+  `(term-color-black ((,class (:background ,zen-bg0 :foreground ,zen-bg0))))
+  `(term-color-red ((,class (:background ,red3 :foreground ,red3))))
+  `(term-color-green ((,class (:background ,green3 :foreground ,green3))))
+  `(term-color-yellow ((,class (:background ,yellow3 :foreground ,yellow3))))
+  `(term-color-blue ((,class (:background ,blue3 :foreground ,blue3))))
+  `(term-color-magenta ((,class (:background ,pink :foreground ,pink))))
+  `(term-color-cyan ((,class (:background ,aqua :foreground ,aqua))))
+  `(term-color-white ((,class (:background ,fg :foreground ,fg))))
 
    ;; Eshell
    `(eshell-prompt ((,class (:foreground ,violet2 :weight bold))))
