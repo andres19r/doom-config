@@ -58,3 +58,4 @@
 (package! dap-mode)
 (package! tree-sitter)
 (package! tree-sitter-langs)
+(package! lsp-dart)
