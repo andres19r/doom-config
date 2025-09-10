@@ -56,3 +56,5 @@
 (package! prettier-js)
 (package! emmet-mode)
 (package! dap-mode)
+(package! tree-sitter)
+(package! tree-sitter-langs)
