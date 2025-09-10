@@ -201,6 +201,8 @@
 (add-hook 'css-mode-hook #'lsp)
 (add-hook 'scss-mode-hook #'lsp)
 
+(add-hook 'dart-mode-hook 'lsp)
+
 (global-visual-line-mode t)
 ;; (setq treemacs-default-visit-action 'treemacs-visit-node-close-treemacs)
 
