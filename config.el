@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 13))
 ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'kanso-mist)
+(setq doom-theme 'doom-nord-aurora)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -117,6 +117,25 @@
       :desc "Go to previous tab"
       "k" #'+tabs:previous-or-goto)
 
+(map! :leader
+      (:prefix ("f" . "file")
+       :desc "Find file" "f" #'consult-find
+       :desc "Recent files" "r" #'consult-recent-file)
+
+      (:prefix ("b" . "buffer")
+       :desc "Switch buffer" "b" #'consult-buffer)
+
+      (:prefix ("s" . "search")
+       :desc "Search buffer" "s" #'consult-line
+       :desc "Search project" "p" #'consult-ripgrep
+       :desc "Search directory" "d" #'consult-grep
+       :desc "Jump to outline" "o" #'consult-outline
+       :desc "Jump to imenu" "i" #'consult-imenu)
+
+      (:prefix ("p" . "project")
+       :desc "Find file in project" "f" #'consult-projectile-find-file
+       :desc "Switch project" "p" #'consult-projectile-switch-project))
+
 (let ((alternatives '("dragon.png"
                       "img-1.png"
                       "img-2.png"
@@ -142,7 +161,7 @@
 	      (apply oldfn args)))
 
 (setq lsp-headerline-breadcrumb-enable t)
-;; (lsp-treemacs-sync-mode 1)
+(lsp-treemacs-sync-mode 1)
 
 (require 'dap-firefox)
 (require 'dap-chrome)

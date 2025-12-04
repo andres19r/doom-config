@@ -59,3 +59,16 @@
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! lsp-dart)
+(package! dart-mode)
+(package! flutter)
+(package! marginalia)       ; Rich annotations in the minibuffer
+(package! embark)          ; Contextual actions on completion candidates  
+(package! embark-consult)  ; Embark integration with consult
+(package! orderless)       ; Flexible completion style
+(package! consult)         ; Enhanced commands (search, navigation, etc.)
+(package! consult-projectile) ; Projectile integration for consult
+(package! vertico-posframe)    ; Show vertico in a popup frame
+(package! consult-dir)         ; Fast directory switching
+(package! consult-lsp)         ; Fast directory switching
+(package! consult-flycheck)    ; Flycheck integration
+(package! wgrep)              ; Edit grep results directly
