@@ -163,6 +163,10 @@
 (setq lsp-headerline-breadcrumb-enable t)
 (lsp-treemacs-sync-mode 1)
 
+(use-package! mason
+  :hook
+  (after-init-hook . mason-ensure))
+
 (require 'dap-firefox)
 (require 'dap-chrome)
 (require 'dap-node)

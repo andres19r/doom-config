@@ -72,3 +72,5 @@
 (package! consult-lsp)         ; Fast directory switching
 (package! consult-flycheck)    ; Flycheck integration
 (package! wgrep)              ; Edit grep results directly
+(package! mason)
+(package! prisma-mode :recipe (:host github :repo "pimeys/emacs-prisma-mode" :branch "main"))
